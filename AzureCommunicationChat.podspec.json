@@ -16,7 +16,7 @@
     "git": "https://github.com/knvsl/testing.git",
     "tag": "testing"
   },
-  "source_files": "Source/**/*.{h,m}",
+  "source_files": "Source/**/*.{swift}",
   "pod_target_xcconfig": {
     "DEFINES_MODULE": "YES",
     "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
