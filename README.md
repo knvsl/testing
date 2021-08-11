@@ -56,7 +56,7 @@ specifying the clone URL of this repository and the version specifier you wish t
 // swift-tools-version:5.3
     dependencies: [
         ...
-        .package(name: "AzureCommunicationChat", url: "https://github.com/Azure/SwiftPM-AzureCommunicationChat.git", from: "1.0.0-beta.12")
+        .package(name: "AzureCommunicationChat", url: "https://github.com/Azure/SwiftPM-AzureCommunicationChat.git", from: "1.0.1")
     ],
 ```
 
@@ -94,7 +94,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'MyTarget' do
-  pod 'AzureCommunicationChat', '1.0.0-beta.12'
+  pod 'AzureCommunicationChat', '1.0.1'
   ...
 end
 ```
@@ -287,6 +287,7 @@ Use the `send` method of `ChatThreadClient` to send a message to a thread.
 - `content`, required, is used to provide the chat message content.
 - `senderDisplayName` is used to specify the display name of the sender, if not specified, an empty name will be set.
 - `type` is the type of message being sent, the supported types are text and html.
+- `metadata` is any additional metadata you would like to send with the message.
 
 `SendChatMessageResult` is the response returned from sending a message, it contains the unique ID of the message.
 

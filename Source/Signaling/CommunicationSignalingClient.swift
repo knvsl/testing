@@ -79,6 +79,7 @@ class CommunicationSignalingClient {
     func start() {
         selfHostedTrouterClient.withRegistrar(trouterUrlRegistrar)
         selfHostedTrouterClient.start()
+        selfHostedTrouterClient.setUserActivityState(UserActivityState.TrouterUserActivityStateActive)
     }
 
     func stop() {
@@ -146,7 +147,7 @@ class CommunicationHandler: NSObject, TrouterListener {
             }
 
             let generalPayload = try JSONDecoder().decode(BasePayload.self, from: requestJsonData)
-            let chatEventId = try ChatEventId(forCode: generalPayload._eventId)
+            let chatEventId = try ChatEventId(forCode: generalPayload.eventId)
 
             // Convert trouter payload to chat event payload
             let chatEvent = try TrouterEventUtil.create(chatEvent: chatEventId, from: request)

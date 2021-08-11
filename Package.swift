@@ -48,7 +48,7 @@ let package = Package(
         .package(
             name: "Trouter",
             url: "https://github.com/microsoft/trouter-client-ios.git",
-            .branch("v0.0.1-beta.5")
+            .from("0.1.0")
         )
     ],
     targets: [
@@ -70,6 +70,7 @@ let package = Package(
             dependencies: [
                 "AzureCommunicationCommon",
                 "AzureCommunicationChat",
+                "AzureTest",
                 .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
             ],
             path: "Tests",

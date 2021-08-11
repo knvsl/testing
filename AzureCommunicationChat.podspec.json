@@ -1,9 +1,13 @@
 {
   "name": "AzureCommunicationChat",
-  "version": "1.0.0-beta.13",
+  "version": "1.0.1",
   "summary": "Azure Communication Chat Service client library for iOS",
   "description": "This package contains the Chat client library for Azure Communication\nServices.",
-  "homepage": "https://github.com/Azure/azure-sdk-for-ios",
+  "homepage": "https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication/AzureCommunicationChat",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
   "authors": {
     "Azure SDK Mobile Team": "azuresdkmobileteam@microsoft.com"
   },
@@ -13,10 +17,10 @@
   },
   "swift_versions": "5.0",
   "source": {
-    "git": "https://github.com/knvsl/testing.git",
-    "tag": "testing"
+    "git": "https://github.com/Azure/azure-sdk-for-ios.git",
+    "tag": "AzureCommunicationChat_1.0.1"
   },
-  "source_files": "Source/**/*.{swift}",
+  "source_files": "sdk/communication/AzureCommunicationChat/Source/**/*.{swift,h,m}",
   "pod_target_xcconfig": {
     "DEFINES_MODULE": "YES",
     "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
@@ -32,7 +36,7 @@
       "~> 1.0"
     ],
     "Trouter": [
-      "0.0.1-beta.5"
+      "0.1.0"
     ]
   },
   "swift_version": "5.0"
