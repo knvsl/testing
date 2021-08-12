@@ -65,21 +65,21 @@ let package = Package(
             ]
         ),
         // Test targets
-        .testTarget(
-            name: "AzureCommunicationChatTests",
-            dependencies: [
-                "AzureCommunicationCommon",
-                "AzureCommunicationChat",
-                "AzureTest",
-                .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
-            ],
-            path: "Tests",
-            exclude: [
-                "Info.plist",
-                "Util/Mocks",
-                "Util/Recordings"
-            ]
-        )
+        // .testTarget(
+        //     name: "AzureCommunicationChatTests",
+        //     dependencies: [
+        //         "AzureCommunicationCommon",
+        //         "AzureCommunicationChat",
+        //         "AzureTest",
+        //         .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
+        //     ],
+        //     path: "Tests",
+        //     exclude: [
+        //         "Info.plist",
+        //         "Util/Mocks",
+        //         "Util/Recordings"
+        //     ]
+        // )
     ],
     swiftLanguageVersions: [.v5]
 )
