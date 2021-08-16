@@ -229,9 +229,10 @@ public class ChatMessageReceivedEvent: BaseChatMessageEvent {
 
         self.message = messageReceivedPayload.messageBody
 
-        if let acsChatMetadata = messageReceivedPayload.acsChatMessageMetadata.data(using: .utf8),
-            !acsChatMetadata.isEmpty {
-            self.metadata = try JSONDecoder().decode([String: String?].self, from: acsChatMetadata)
+        if (!messageReceivedPayload.acsChatMessageMetadata.isEmpty && messageReceivedPayload.acsChatMessageMetadata != "null") {
+            if let acsChatMetadata = messageReceivedPayload.acsChatMessageMetadata.data(using: .utf8) {
+                self.metadata = try JSONDecoder().decode([String: String?].self, from: acsChatMetadata)
+            }
         }
 
         super.init(
@@ -313,11 +314,11 @@ public class ChatMessageEditedEvent: BaseChatMessageEvent {
         self.message = chatMessageEditedPayload.messageBody
         self.editedOn = Iso8601Date(string: chatMessageEditedPayload.edittime)
 
-        if let acsChatMetadata = chatMessageEditedPayload.acsChatMessageMetadata.data(using: .utf8),
-            !acsChatMetadata.isEmpty {
-            self.metadata = try JSONDecoder().decode([String: String?].self, from: acsChatMetadata)
+        if (!chatMessageEditedPayload.acsChatMessageMetadata.isEmpty && chatMessageEditedPayload.acsChatMessageMetadata != "null") {
+            if let acsChatMetadata = chatMessageEditedPayload.acsChatMessageMetadata.data(using: .utf8) {
+                self.metadata = try JSONDecoder().decode([String: String?].self, from: acsChatMetadata)
+            }
         }
-
         super.init(
             threadId: chatMessageEditedPayload.groupId,
             sender: TrouterEventUtil.getIdentifier(from: chatMessageEditedPayload.senderId),
