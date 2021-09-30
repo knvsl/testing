@@ -38,17 +38,21 @@ let package = Package(
         .library(name: "AzureCommunicationChat", targets: ["AzureCommunicationChat"])
     ],
     dependencies: [
-        .package(name: "AzureCore", url: "https://github.com/Azure/SwiftPM-AzureCore.git", from: "1.0.0-beta.12"),
+        .package(name: "AzureCore", url: "https://github.com/Azure/SwiftPM-AzureCore.git", .exact("1.0.0-beta.13")),
         .package(
             name: "AzureCommunicationCommon",
             url: "https://github.com/Azure/SwiftPM-AzureCommunicationCommon.git",
-            from: "1.0.0"
+            from: "1.0.2"
         ),
         .package(url: "https://github.com/AliSoftware/OHHTTPStubs.git", from: "9.1.0"),
         .package(
             name: "Trouter",
             url: "https://github.com/microsoft/trouter-client-ios.git",
-            from: "0.1.0"
+            .exact("0.1.0")
+        ),
+        .package(
+            url: "https://github.com/Azure/azure-sdk-for-ios.git",
+            .branch("main")
         )
     ],
     targets: [
@@ -65,21 +69,21 @@ let package = Package(
             ]
         ),
         // Test targets
-        // .testTarget(
-        //     name: "AzureCommunicationChatTests",
-        //     dependencies: [
-        //         "AzureCommunicationCommon",
-        //         "AzureCommunicationChat",
-        //         "AzureTest",
-        //         .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
-        //     ],
-        //     path: "Tests",
-        //     exclude: [
-        //         "Info.plist",
-        //         "Util/Mocks",
-        //         "Util/Recordings"
-        //     ]
-        // )
+        .testTarget(
+            name: "AzureCommunicationChatTests",
+            dependencies: [
+                "AzureCommunicationCommon",
+                "AzureCommunicationChat",
+                "AzureTest",
+                .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
+            ],
+            path: "Tests",
+            exclude: [
+                "Info.plist",
+                "Util/Mocks",
+                "Util/Recordings"
+            ]
+        )
     ],
     swiftLanguageVersions: [.v5]
 )

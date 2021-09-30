@@ -1,10 +1,19 @@
 # Release History
 
-## 1.1.0-beta.1 (Unreleased)
+## 1.1.0-beta.1 (2021-09-30)
 ### New Features
 - `ChatMessage` supports metadata, provide optional metadata when sending a `ChatMessage`
 - `ChatMessageReceivedEvent` and `ChatMessageEditedEvent` also contain metadata
 - Typing notifications support sender display name, `sendTypingNotification()` accepts an optional `senderDisplayName`
+
+## 1.0.2 (2021-09-02)
+### Features Added
+- Added `CommunicationSignalingErrorHandler` to `AzureCommunicationChatClientOptions` for handling signaling errors.
+
+### Bugs Fixed
+- Fixed realtime notifications to handle nil `displayName`.
+- Fixed `readOn` property in `readReceiptReceived` events.
+- Fixed recipient id format in events.
 
 ## 1.0.1 (2021-07-26)
 ### New Features
